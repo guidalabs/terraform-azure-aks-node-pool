@@ -10,6 +10,7 @@ This module contains one terraform resource, but allows you to create multiple n
 module "aks-node-pool" {
   source                = "guidalabs/terraform-azure-aks-node-pool"
   resource_group_name   = azurerm_resource_group.main.name
+  orchestrator_version  = 1.21.2
   location              = local.location
   vnet_subnet_id        = module.network.vnet_subnets[0]
   kubernetes_cluster_id = module.aks.aks_id
@@ -47,5 +48,3 @@ module "aks-node-pool" {
   }
 }
 ```
-
-See [Configuration](configuration.md)
