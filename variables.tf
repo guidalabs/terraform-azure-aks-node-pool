@@ -28,3 +28,20 @@ variable "kubernetes_cluster_id" {
 variable "vnet_subnet_id" {
   type = string
 }
+
+variable "max_pods" {
+  type    = number
+  default = 100
+}
+
+variable "orchestrator_version" {
+  description = "Specify which Kubernetes release to use for the orchestration layer. The default used is the latest Kubernetes version available in the region"
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "Any tags can be set"
+  default     = {}
+}
