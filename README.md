@@ -20,8 +20,8 @@ module "aks-node-pool" {
       availability_zones       = ["1", "2", "3"]
       enable_node_public_ip    = true # if set to true node_public_ip_prefix_id is required
       node_public_ip_prefix_id = module.public-ip-prefix.prefix_id[0]
-      node_labels              = { "workload" = "rtp-public" }
-      node_taints              = ["workload=rtp:NoSchedule"]
+      node_labels              = { "workload" = "example-public" }
+      node_taints              = ["workload=example:NoSchedule"]
       enable_host_encryption   = false
     },
     user2 = {
@@ -30,8 +30,8 @@ module "aks-node-pool" {
       availability_zones       = ["1", "2", "3"]
       enable_node_public_ip    = true
       node_public_ip_prefix_id = module.public-ip-prefix.prefix_id[1]
-      node_labels              = { "workload" = "rtp-public" }
-      node_taints              = ["workload=rtp:NoSchedule"]
+      node_labels              = { "workload" = "example2-public" }
+      node_taints              = ["workload=example2:NoSchedule"]
       enable_host_encryption   = false
     },
     user3 = {
@@ -40,8 +40,8 @@ module "aks-node-pool" {
       availability_zones       = ["1", "2", "3"]
       enable_node_public_ip    = false
       node_public_ip_prefix_id = ""
-      node_labels              = { "workload" = "rtp-private" }
-      node_taints              = ["workload=rtp:NoSchedule"]
+      node_labels              = { "workload" = "example-private" }
+      node_taints              = ["workload=example-private:NoSchedule"]
       enable_host_encryption   = false
     },
   }
