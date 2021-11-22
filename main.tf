@@ -10,6 +10,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
   min_count                = each.value.min_count
   max_count                = each.value.max_count
   priority                 = each.value.priority
+  eviction_policy          = each.value.eviction_policy
   vnet_subnet_id           = var.vnet_subnet_id
   availability_zones       = each.value.availability_zones
   enable_auto_scaling      = each.value.enable_auto_scaling
