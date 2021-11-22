@@ -18,6 +18,7 @@ module "aks-node-pool" {
     user1 = {
       vm_size                  = "Standard_A2_v2"
       priority                 = "Regular"
+      eviction_policy          = ""
       enable_auto_scaling      = false
       os_disk_size_gb          = 50
       os_disk_type             = "Managed"
@@ -52,6 +53,7 @@ module "aks-node-pool" {
     user3 = {
       vm_size                  = "Standard_A2_v2"
       priority                 = "Spot" # Spot instances
+      eviction_policy          = "Delete"
       enable_auto_scaling      = false
       os_disk_size_gb          = 50
       os_disk_type             = "Ephemeral"
@@ -61,8 +63,8 @@ module "aks-node-pool" {
       availability_zones       = ["1", "2", "3"]
       enable_node_public_ip    = false
       node_public_ip_prefix_id = ""
-      node_labels              = { "workload" = "example-private" }
-      node_taints              = ["workload=example-private:NoSchedule"]
+      node_labels              = { "kubernetes.azure.com/scalesetpriority" = "spot" }
+      node_taints              = ["kubernetes.azure.com/scalesetpriority=spot:NoSchedule"]
       enable_host_encryption   = false
       max_pods                 = 100
     },

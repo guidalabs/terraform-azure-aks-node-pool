@@ -10,6 +10,7 @@ variable "node_pools" {
     max_count                = number
     min_count                = number
     priority                 = string
+    eviction_policy          = string
     availability_zones       = list(any)
     enable_auto_scaling      = bool
     enable_node_public_ip    = bool
