@@ -17,8 +17,6 @@ module "aks-node-pool" {
   node_pools = {
     user1 = {
       vm_size                  = "Standard_A2_v2"
-      priority                 = "Regular"
-      eviction_policy          = ""
       enable_auto_scaling      = false
       os_disk_size_gb          = 50
       os_disk_type             = "Managed"
@@ -35,7 +33,6 @@ module "aks-node-pool" {
     },
     user2 = {
       vm_size                  = "Standard_A2_v2"
-      priority                 = "Regular"
       enable_auto_scaling      = false
       os_disk_size_gb          = 50
       os_disk_type             = "Managed"
