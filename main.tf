@@ -22,5 +22,5 @@ resource "azurerm_kubernetes_cluster_node_pool" "user" {
   enable_host_encryption   = try(each.value.enable_host_encryption, false)
   max_pods                 = try(each.value.max_pods, 100)
 
-  tags = var.tags
+  tags = merge(var.tags, each.value.agents_tags)
 }
